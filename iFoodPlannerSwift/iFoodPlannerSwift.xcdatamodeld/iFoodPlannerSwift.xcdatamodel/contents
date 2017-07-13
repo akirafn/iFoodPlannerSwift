@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ItemReceita" representedClassName="ItemReceita" syncable="YES" codeGenerationType="class">
+        <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="medida" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quatidade" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="receitaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Receita" representedClassName="Receita" syncable="YES" codeGenerationType="class">
+        <attribute name="procedimento" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="receitaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Receita" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Item" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="ItemReceita" positionX="-36" positionY="9" width="128" height="105"/>
+    </elements>
+</model>
