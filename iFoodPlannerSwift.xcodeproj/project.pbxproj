@@ -9,13 +9,19 @@
 /* Begin PBXBuildFile section */
 		2621E4675AA0F1D953C9C5A3 /* Pods_iFoodPlannerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1729C3F47F0506A058828A /* Pods_iFoodPlannerSwift.framework */; };
 		E990B86D1F17EA10005ED6C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990B86C1F17EA10005ED6C8 /* AppDelegate.swift */; };
-		E990B86F1F17EA10005ED6C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990B86E1F17EA10005ED6C8 /* ViewController.swift */; };
 		E990B8721F17EA10005ED6C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E990B8701F17EA10005ED6C8 /* Main.storyboard */; };
 		E990B8751F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E990B8731F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodeld */; };
 		E990B8771F17EA10005ED6C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E990B8761F17EA10005ED6C8 /* Assets.xcassets */; };
 		E990B87A1F17EA10005ED6C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E990B8781F17EA10005ED6C8 /* LaunchScreen.storyboard */; };
 		E990B8831F17F79B005ED6C8 /* VCReceitaLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990B8821F17F79B005ED6C8 /* VCReceitaLista.swift */; };
 		E990B8851F17F7C4005ED6C8 /* VCCozinhaLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990B8841F17F7C4005ED6C8 /* VCCozinhaLista.swift */; };
+		E99C3F781F194407003504D3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99C3F771F194407003504D3 /* CoreData.framework */; };
+		E99C3F8D1F19471C003504D3 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F871F19471C003504D3 /* Item+CoreDataClass.swift */; };
+		E99C3F8E1F19471C003504D3 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F881F19471C003504D3 /* Item+CoreDataProperties.swift */; };
+		E99C3F8F1F19471C003504D3 /* ItemReceita+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F891F19471C003504D3 /* ItemReceita+CoreDataClass.swift */; };
+		E99C3F901F19471C003504D3 /* ItemReceita+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F8A1F19471C003504D3 /* ItemReceita+CoreDataProperties.swift */; };
+		E99C3F911F19471C003504D3 /* Receita+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F8B1F19471C003504D3 /* Receita+CoreDataClass.swift */; };
+		E99C3F921F19471C003504D3 /* Receita+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F8C1F19471C003504D3 /* Receita+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +30,6 @@
 		96CCD001646D61CB2A556BEA /* Pods-iFoodPlannerSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFoodPlannerSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iFoodPlannerSwift/Pods-iFoodPlannerSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		E990B8691F17EA10005ED6C8 /* iFoodPlannerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFoodPlannerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E990B86C1F17EA10005ED6C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E990B86E1F17EA10005ED6C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E990B8711F17EA10005ED6C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E990B8741F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iFoodPlannerSwift.xcdatamodel; sourceTree = "<group>"; };
 		E990B8761F17EA10005ED6C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +37,13 @@
 		E990B87B1F17EA10005ED6C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E990B8821F17F79B005ED6C8 /* VCReceitaLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCReceitaLista.swift; path = ViewController/VCReceitaLista.swift; sourceTree = "<group>"; };
 		E990B8841F17F7C4005ED6C8 /* VCCozinhaLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCCozinhaLista.swift; path = ViewController/VCCozinhaLista.swift; sourceTree = "<group>"; };
+		E99C3F771F194407003504D3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E99C3F871F19471C003504D3 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataClass.swift"; path = "Database/Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E99C3F881F19471C003504D3 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "Database/Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E99C3F891F19471C003504D3 /* ItemReceita+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ItemReceita+CoreDataClass.swift"; path = "Database/ItemReceita+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E99C3F8A1F19471C003504D3 /* ItemReceita+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ItemReceita+CoreDataProperties.swift"; path = "Database/ItemReceita+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E99C3F8B1F19471C003504D3 /* Receita+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Receita+CoreDataClass.swift"; path = "Database/Receita+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E99C3F8C1F19471C003504D3 /* Receita+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Receita+CoreDataProperties.swift"; path = "Database/Receita+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99C3F781F194407003504D3 /* CoreData.framework in Frameworks */,
 				2621E4675AA0F1D953C9C5A3 /* Pods_iFoodPlannerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,6 +62,7 @@
 		44D59B9906EA4A142D7D03AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E99C3F771F194407003504D3 /* CoreData.framework */,
 				8D1729C3F47F0506A058828A /* Pods_iFoodPlannerSwift.framework */,
 			);
 			name = Frameworks;
@@ -75,9 +89,9 @@
 		E990B86B1F17EA10005ED6C8 /* iFoodPlannerSwift */ = {
 			isa = PBXGroup;
 			children = (
+				E99C3F861F1946E3003504D3 /* Database */,
 				E990B8811F17F505005ED6C8 /* ViewController */,
 				E990B86C1F17EA10005ED6C8 /* AppDelegate.swift */,
-				E990B86E1F17EA10005ED6C8 /* ViewController.swift */,
 				E990B8701F17EA10005ED6C8 /* Main.storyboard */,
 				E990B8761F17EA10005ED6C8 /* Assets.xcassets */,
 				E990B8781F17EA10005ED6C8 /* LaunchScreen.storyboard */,
@@ -94,6 +108,19 @@
 				E990B8841F17F7C4005ED6C8 /* VCCozinhaLista.swift */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		E99C3F861F1946E3003504D3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				E99C3F871F19471C003504D3 /* Item+CoreDataClass.swift */,
+				E99C3F881F19471C003504D3 /* Item+CoreDataProperties.swift */,
+				E99C3F891F19471C003504D3 /* ItemReceita+CoreDataClass.swift */,
+				E99C3F8A1F19471C003504D3 /* ItemReceita+CoreDataProperties.swift */,
+				E99C3F8B1F19471C003504D3 /* Receita+CoreDataClass.swift */,
+				E99C3F8C1F19471C003504D3 /* Receita+CoreDataProperties.swift */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		F9928CB387303853CCB61CC2 /* Pods */ = {
@@ -228,11 +255,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99C3F8E1F19471C003504D3 /* Item+CoreDataProperties.swift in Sources */,
+				E99C3F8F1F19471C003504D3 /* ItemReceita+CoreDataClass.swift in Sources */,
+				E99C3F8D1F19471C003504D3 /* Item+CoreDataClass.swift in Sources */,
 				E990B8751F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodeld in Sources */,
-				E990B86F1F17EA10005ED6C8 /* ViewController.swift in Sources */,
 				E990B8831F17F79B005ED6C8 /* VCReceitaLista.swift in Sources */,
 				E990B86D1F17EA10005ED6C8 /* AppDelegate.swift in Sources */,
+				E99C3F901F19471C003504D3 /* ItemReceita+CoreDataProperties.swift in Sources */,
 				E990B8851F17F7C4005ED6C8 /* VCCozinhaLista.swift in Sources */,
+				E99C3F921F19471C003504D3 /* Receita+CoreDataProperties.swift in Sources */,
+				E99C3F911F19471C003504D3 /* Receita+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +428,7 @@
 				E990B8801F17EA10005ED6C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

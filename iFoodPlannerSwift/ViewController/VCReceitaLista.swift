@@ -7,13 +7,61 @@
 //
 
 import UIKit
+import CoreData
 
-class VCReceitaLista: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VCReceitaItemCell : UITableViewCell{
+    @IBOutlet weak var titulo: UILabel!
+}
+
+class VCReceitaLista: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    
+    let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var frc : NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
+    
+    func fetchRequests() -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Receita")
+        let sorter = NSSortDescriptor(key: "titulo", ascending: true)
+        fetchRequest.sortDescriptors = [sorter]
+        return fetchRequest
+    }
+    
+    func getFRC() -> NSFetchedResultsController<NSFetchRequestResult> {
+        frc = NSFetchedResultsController(fetchRequest : fetchRequests(), managedObjectContext: pc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return frc
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        frc = getFRC()
+        frc.delegate = self
+        
+        do{
+            try frc.performFetch()
+        } catch{
+            print(error)
+            return
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        frc = getFRC()
+        frc.delegate = self
+        
+        do{
+            try frc.performFetch()
+        } catch{
+            print(error)
+            return
+        }
+        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,14 +81,26 @@ class VCReceitaLista: UIViewController, UITableViewDelegate, UITableViewDataSour
     */
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        let nroSessoes = frc.sections?.count
+        return nroSessoes!
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        let nroReceitas = frc.sections?[section].numberOfObjects
+        
+        if((nroReceitas!) > 0){
+            self.tableView.isHidden = false
+        } else{
+            self.tableView.isHidden = true
+        }
+        
+        
+        return nroReceitas!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReceitaItemCellIdentifier", for: indexPath) as! VCReceitaItemCell
+        
+        return cell
     }
 }

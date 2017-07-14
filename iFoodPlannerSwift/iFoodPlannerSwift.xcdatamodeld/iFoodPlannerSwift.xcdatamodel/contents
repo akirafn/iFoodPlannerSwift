@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+    <entity name="Item" representedClassName="Item" syncable="YES">
         <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="receita" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemReceita" inverseName="ingrediente" inverseEntity="ItemReceita" syncable="YES"/>
     </entity>
-    <entity name="ItemReceita" representedClassName="ItemReceita" syncable="YES" codeGenerationType="class">
+    <entity name="ItemReceita" representedClassName="ItemReceita" syncable="YES">
         <attribute name="itemId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="medida" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quatidade" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="receitaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="ingrediente" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="receita" inverseEntity="Item" syncable="YES"/>
+        <relationship name="receita" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Receita" inverseName="ingrediente" inverseEntity="Receita" syncable="YES"/>
     </entity>
-    <entity name="Receita" representedClassName="Receita" syncable="YES" codeGenerationType="class">
+    <entity name="Receita" representedClassName="Receita" syncable="YES">
         <attribute name="procedimento" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="receitaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ingrediente" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemReceita" inverseName="receita" inverseEntity="ItemReceita" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Receita" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Item" positionX="-54" positionY="-9" width="128" height="75"/>
-        <element name="ItemReceita" positionX="-36" positionY="9" width="128" height="105"/>
+        <element name="Item" positionX="-54" positionY="-9" width="128" height="88"/>
+        <element name="ItemReceita" positionX="358" positionY="144" width="128" height="133"/>
+        <element name="Receita" positionX="-153" positionY="225" width="128" height="103"/>
     </elements>
 </model>
