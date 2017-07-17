@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2621E4675AA0F1D953C9C5A3 /* Pods_iFoodPlannerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1729C3F47F0506A058828A /* Pods_iFoodPlannerSwift.framework */; };
+		E96730C41F1D2650003532B3 /* VCReceitaNova.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96730C31F1D2650003532B3 /* VCReceitaNova.swift */; };
+		E96730C61F1D59D5003532B3 /* VCIngredienteNova.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96730C51F1D59D5003532B3 /* VCIngredienteNova.swift */; };
+		E96730C81F1D5C68003532B3 /* VCIngredienteLista.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96730C71F1D5C68003532B3 /* VCIngredienteLista.swift */; };
 		E990B86D1F17EA10005ED6C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E990B86C1F17EA10005ED6C8 /* AppDelegate.swift */; };
 		E990B8721F17EA10005ED6C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E990B8701F17EA10005ED6C8 /* Main.storyboard */; };
 		E990B8751F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E990B8731F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodeld */; };
@@ -28,6 +31,9 @@
 		8B2189820966709D7B48EE99 /* Pods-iFoodPlannerSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFoodPlannerSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-iFoodPlannerSwift/Pods-iFoodPlannerSwift.release.xcconfig"; sourceTree = "<group>"; };
 		8D1729C3F47F0506A058828A /* Pods_iFoodPlannerSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iFoodPlannerSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CCD001646D61CB2A556BEA /* Pods-iFoodPlannerSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iFoodPlannerSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iFoodPlannerSwift/Pods-iFoodPlannerSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		E96730C31F1D2650003532B3 /* VCReceitaNova.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCReceitaNova.swift; path = ViewController/VCReceitaNova.swift; sourceTree = "<group>"; };
+		E96730C51F1D59D5003532B3 /* VCIngredienteNova.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCIngredienteNova.swift; path = ViewController/VCIngredienteNova.swift; sourceTree = "<group>"; };
+		E96730C71F1D5C68003532B3 /* VCIngredienteLista.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCIngredienteLista.swift; path = ViewController/VCIngredienteLista.swift; sourceTree = "<group>"; };
 		E990B8691F17EA10005ED6C8 /* iFoodPlannerSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iFoodPlannerSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E990B86C1F17EA10005ED6C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E990B8711F17EA10005ED6C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +112,9 @@
 			children = (
 				E990B8821F17F79B005ED6C8 /* VCReceitaLista.swift */,
 				E990B8841F17F7C4005ED6C8 /* VCCozinhaLista.swift */,
+				E96730C31F1D2650003532B3 /* VCReceitaNova.swift */,
+				E96730C51F1D59D5003532B3 /* VCIngredienteNova.swift */,
+				E96730C71F1D5C68003532B3 /* VCIngredienteLista.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -256,10 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E99C3F8E1F19471C003504D3 /* Item+CoreDataProperties.swift in Sources */,
+				E96730C61F1D59D5003532B3 /* VCIngredienteNova.swift in Sources */,
 				E99C3F8F1F19471C003504D3 /* ItemReceita+CoreDataClass.swift in Sources */,
 				E99C3F8D1F19471C003504D3 /* Item+CoreDataClass.swift in Sources */,
 				E990B8751F17EA10005ED6C8 /* iFoodPlannerSwift.xcdatamodeld in Sources */,
 				E990B8831F17F79B005ED6C8 /* VCReceitaLista.swift in Sources */,
+				E96730C41F1D2650003532B3 /* VCReceitaNova.swift in Sources */,
+				E96730C81F1D5C68003532B3 /* VCIngredienteLista.swift in Sources */,
 				E990B86D1F17EA10005ED6C8 /* AppDelegate.swift in Sources */,
 				E99C3F901F19471C003504D3 /* ItemReceita+CoreDataProperties.swift in Sources */,
 				E990B8851F17F7C4005ED6C8 /* VCCozinhaLista.swift in Sources */,

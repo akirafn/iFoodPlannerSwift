@@ -15,6 +15,7 @@ class VCReceitaItemCell : UITableViewCell{
 
 class VCReceitaLista: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelSemReceitas: UILabel!
     
     let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -89,8 +90,10 @@ class VCReceitaLista: UIViewController, UITableViewDelegate, UITableViewDataSour
         let nroReceitas = frc.sections?[section].numberOfObjects
         
         if((nroReceitas!) > 0){
+            self.labelSemReceitas.isHidden = true
             self.tableView.isHidden = false
         } else{
+            self.labelSemReceitas.isHidden = false
             self.tableView.isHidden = true
         }
         
@@ -100,6 +103,9 @@ class VCReceitaLista: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReceitaItemCellIdentifier", for: indexPath) as! VCReceitaItemCell
+        let item = frc.object(at: indexPath) as! Receita
+        
+        cell.titulo.text = item.titulo
         
         return cell
     }
