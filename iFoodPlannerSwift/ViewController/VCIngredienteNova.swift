@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class VCIngredienteNova: UIViewController {
+class VCIngredienteNova: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var nomeIngrediente: UITextField!
-    @IBOutlet weak var botaoSalvar: UIButton!
+    
+    let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,5 +35,26 @@ class VCIngredienteNova: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func salvarIngrediente(_ sender: UIButton) {
+        let ingredientDescription = NSEntityDescription.entity(forEntityName: "Item", in: pc)
+        let ingredientItem = Item(entity: ingredientDescription!, insertInto: pc)
+        
+        ingredientItem.nome = nomeIngrediente.text
+        
+        do{
+            try pc.save()
+        } catch{
+            print(error)
+        }
+        
+        let alertController = UIAlertController(title: "Sucesso", message: "Ingrediente adicionado com sucesso!", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            self.navigationController?.popViewController(animated: true)
+            return
+        })
+        alertController.addAction(alertAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
 
 }

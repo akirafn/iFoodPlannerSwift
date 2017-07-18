@@ -13,18 +13,54 @@ class VCIngredienteListaItem: UITableViewCell {
     @IBOutlet weak var nomeIngrediente: UILabel!
 }
 
-class VCIngredienteLista: UIViewController, NSFetchedResultsControllerDelegate {
+class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var botaoSalvar: UIButton!
+    
+    let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext    
+    var frc : NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
+
+    func fetchRequests() -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+        let sorter = NSSortDescriptor(key: "nome", ascending: true)
+        fetchRequest.sortDescriptors = [sorter]
+        return fetchRequest
+    }
+    
+    func getFRC() -> NSFetchedResultsController<NSFetchRequestResult> {
+        frc = NSFetchedResultsController(fetchRequest : fetchRequests(), managedObjectContext: pc, sectionNameKeyPath: nil, cacheName: nil)
+        
+        return frc
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        frc = getFRC()
+        frc.delegate = self
+        
+        do{
+            try frc.performFetch()
+        } catch{
+            print(error)
+            return
+        }
+        
+        self.tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        frc = getFRC()
+        frc.delegate = self
         
+        do{
+            try frc.performFetch()
+        } catch{
+            print(error)
+            return
+        }
+        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +69,33 @@ class VCIngredienteLista: UIViewController, NSFetchedResultsControllerDelegate {
     }
     
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        let nroSessoes = frc.sections?.count
+        return nroSessoes!
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let nroIngrdientes = frc.sections?[section].numberOfObjects
+        
+        if((nroIngrdientes!) > 0){
+            self.tableView.isHidden = false
+        } else{
+            self.tableView.isHidden = true
+        }
+        
+        
+        return nroIngrdientes!
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredienteListaItemCellIdentifier", for: indexPath) as! VCIngredienteListaItem
+        let item = frc.object(at: indexPath) as! Item
+        
+        cell.nomeIngrediente.text = item.nome
+        
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 

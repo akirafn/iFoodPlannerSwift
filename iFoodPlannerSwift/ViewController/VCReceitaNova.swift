@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class VCReceitaNova: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var receitaView: UIView!
