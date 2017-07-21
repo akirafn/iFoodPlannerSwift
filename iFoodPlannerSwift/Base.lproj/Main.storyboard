@@ -461,15 +461,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mq9-J0-LVC">
-                                <rect key="frame" x="16" y="580" width="343" height="30"/>
+                                <rect key="frame" x="16" y="560" width="343" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DdQ-ci-WX1"/>
+                                    <constraint firstAttribute="height" constant="50" id="DdQ-ci-WX1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Salvar Lista">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="salvarListaIngredientes:" destination="n27-9Y-Jui" eventType="touchUpInside" id="1hV-VC-x9U"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgY-7Y-sJB">
                                 <rect key="frame" x="16" y="72" width="343" height="30"/>
@@ -486,7 +489,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SxR-5L-cPd">
-                                <rect key="frame" x="16" y="110" width="343" height="462"/>
+                                <rect key="frame" x="16" y="110" width="343" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredienteListaItemCellIdentifier" id="baI-xa-eZe" customClass="VCIngredienteListaItem" customModule="iFoodPlannerSwift" customModuleProvider="target">
@@ -499,13 +502,25 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR7-YA-5FY">
                                                     <rect key="frame" x="8" y="8" width="327" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uqM-Tk-9nQ">
+                                                    <rect key="frame" x="307" y="8" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="5bG-Iy-UwY"/>
+                                                        <constraint firstAttribute="width" constant="28" id="Blq-6E-Pgc"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uqM-Tk-9nQ" firstAttribute="top" secondItem="rKS-8y-1qQ" secondAttribute="top" constant="8" id="Ep7-yn-CH6"/>
+                                                <constraint firstAttribute="trailing" secondItem="uqM-Tk-9nQ" secondAttribute="trailing" constant="8" id="rrX-RB-cLo"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkedIcon" destination="uqM-Tk-9nQ" id="64V-zX-6wg"/>
                                             <outlet property="nomeIngrediente" destination="dR7-YA-5FY" id="avb-q6-f9Y"/>
                                         </connections>
                                     </tableViewCell>

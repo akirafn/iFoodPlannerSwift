@@ -36,10 +36,27 @@ class VCIngredienteNova: UIViewController, UINavigationControllerDelegate {
     }
     */
     @IBAction func salvarIngrediente(_ sender: UIButton) {
+        let ingredientName = nomeIngrediente.text
+
+        if (ingredientName?.characters.count)! > 0 {
+            saveIngredient(ingredientName: ingredientName!)
+        } else{
+            let alertController = UIAlertController(title: "Atencao", message: "Nome do ingrediente nao pode ser vazio", preferredStyle: .alert)
+            let dismissButton = UIAlertAction(title: "OK", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+                
+            })
+            alertController.addAction(dismissButton)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    
+    func saveIngredient(ingredientName: String) {
         let ingredientDescription = NSEntityDescription.entity(forEntityName: "Item", in: pc)
         let ingredientItem = Item(entity: ingredientDescription!, insertInto: pc)
         
-        ingredientItem.nome = nomeIngrediente.text
+        ingredientItem.nome = ingredientName
         
         do{
             try pc.save()
@@ -55,6 +72,6 @@ class VCIngredienteNova: UIViewController, UINavigationControllerDelegate {
         })
         alertController.addAction(alertAction)
         self.present(alertController, animated: true, completion: nil)
-    }
 
+    }
 }

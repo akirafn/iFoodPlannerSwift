@@ -11,6 +11,7 @@ import CoreData
 
 class VCIngredienteListaItem: UITableViewCell {
     @IBOutlet weak var nomeIngrediente: UILabel!
+    @IBOutlet weak var checkedIcon: UIImageView!
 }
 
 class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
@@ -19,7 +20,8 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
     
     let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext    
     var frc : NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
-
+    var listaItemsReceita: [Int: Bool] = [:]
+    
     func fetchRequests() -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         let sorter = NSSortDescriptor(key: "nome", ascending: true)
@@ -68,7 +70,9 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-
+    /*
+     Tableview Delegate
+     */
     func numberOfSections(in tableView: UITableView) -> Int {
         let nroSessoes = frc.sections?.count
         return nroSessoes!
@@ -92,8 +96,20 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
         let item = frc.object(at: indexPath) as! Item
         
         cell.nomeIngrediente.text = item.nome
+        cell.checkedIcon.image = UIImage(named: "uncheckIcon")
+        listaItemsReceita[item.itemId as! Int] = false
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+    
+    /*
+     Actions
+     */
+    @IBAction func salvarListaIngredientes(_ sender: UIButton) {
     }
     
     /*
