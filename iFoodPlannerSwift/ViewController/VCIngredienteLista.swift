@@ -14,13 +14,18 @@ class VCIngredienteListaItem: UITableViewCell {
     @IBOutlet weak var checkedIcon: UIImageView!
 }
 
+protocol VCIngredienteListaDelegate {
+    func carregaListaIngredientes(listaIngredientes : [Int : Item])
+}
+
 class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var botaoSalvar: UIButton!
+    var delegate: VCIngredienteListaDelegate?
     
     let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext    
     var frc : NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
-    var listaItemsReceita: [Int: Bool] = [:]
+    var listaItemsReceita: [Int: Item] = [:]
     
     func fetchRequests() -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
@@ -95,23 +100,80 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredienteListaItemCellIdentifier", for: indexPath) as! VCIngredienteListaItem
         let item = frc.object(at: indexPath) as! Item
         
-        cell.nomeIngrediente.text = item.nome
-        cell.checkedIcon.image = UIImage(named: "uncheckIcon")
-        listaItemsReceita[item.itemId as! Int] = false
+        cell.nomeIngrediente.text = String(item.itemId)
+        if let flagItem = listaItemsReceita[Int(item.itemId)]{
+            if(flagItem != nil){
+                cell.checkedIcon.image = UIImage(named: "checkIcon")
+            } else{
+                cell.checkedIcon.image = UIImage(named: "uncheckIcon")
+            }
+        } else{
+            cell.checkedIcon.image = UIImage(named: "uncheckIcon")
+            listaItemsReceita[Int(item.itemId)] = nil
+        }
+
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let item = frc.object(at: indexPath) as! Item
+        
+        if listaItemsReceita[Int(item.itemId)] == nil {
+            let currentCell = tableView.cellForRow(at: indexPath) as! VCIngredienteListaItem
+            currentCell.checkedIcon.image = UIImage(named: "checkIcon")
+            listaItemsReceita[Int(item.itemId)] = item
+        } else{
+            let currentCell = tableView.cellForRow(at: indexPath) as! VCIngredienteListaItem
+            currentCell.checkedIcon.image = UIImage(named: "uncheckIcon")
+            listaItemsReceita[Int(item.itemId)] = nil
+        }
     }
     
     /*
      Actions
      */
     @IBAction func salvarListaIngredientes(_ sender: UIButton) {
+        let nroItens = contarIngredientes()
+        
+        if(nroItens > 0){
+            let alertController = UIAlertController(title: "Sucesso", message: "Ingredientes adicionados com sucesso!", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: {
+                (action: UIAlertAction!) -> Void in
+                self.delegate?.carregaListaIngredientes(listaIngredientes: self.listaItemsReceita)
+                self.navigationController?.popViewController(animated: true)
+                return
+            })
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
+        } else{
+            let alertController = UIAlertController(title: "Sucesso", message: "Nenhum ingrediente foi adicionado. Deseja prosseguir?", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Sim", style: .default, handler: {
+                (action: UIAlertAction!) -> Void in
+                self.navigationController?.popViewController(animated: true)
+                return
+            })
+            let cancelAction = UIAlertAction(title: "Nao", style: .cancel, handler: {
+                (action: UIAlertAction!) -> Void in
+            })
+            
+            alertController.addAction(alertAction)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
+    func  contarIngredientes() -> Int {
+        var nroIngredientes : Int = 0
+        
+        for (key, value) in listaItemsReceita {
+            if(value != nil){
+                nroIngredientes += 1
+            }
+        }
+        
+        return nroIngredientes
+    }
     /*
     // MARK: - Navigation
 
@@ -121,5 +183,4 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
         // Pass the selected object to the new view controller.
     }
     */
-
 }

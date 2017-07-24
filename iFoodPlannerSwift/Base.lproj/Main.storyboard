@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FCJ-BU-bHw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FCJ-BU-bHw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -312,138 +312,172 @@
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seasoningBack" translatesAutoresizingMaskIntoConstraints="NO" id="VpC-Sh-EQn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z1u-l9-v30">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZNX-Hg-CXq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TsQ-u8-AKr">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titulo da Receita:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34F-RM-mDX">
-                                                <rect key="frame" x="8" y="8" width="178" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aw4-O6-Tya">
-                                                <rect key="frame" x="8" y="40" width="359" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingredientes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg5-5O-6Q9">
-                                                <rect key="frame" x="8" y="78" width="127" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <tableView clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OIY-P7-zTy">
-                                                <rect key="frame" x="8" y="110" width="359" height="265"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lgL-TS-CDJ">
-                                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lgL-TS-CDJ" id="NPI-Nu-mur">
-                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kyk-xc-84O">
-                                                                    <rect key="frame" x="8" y="8" width="343" height="28"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="Kyk-xc-84O" firstAttribute="leading" secondItem="NPI-Nu-mur" secondAttribute="leadingMargin" id="3P4-R0-cJk"/>
-                                                                <constraint firstItem="Kyk-xc-84O" firstAttribute="bottom" secondItem="NPI-Nu-mur" secondAttribute="bottomMargin" id="KPk-dy-uht"/>
-                                                                <constraint firstItem="Kyk-xc-84O" firstAttribute="trailing" secondItem="NPI-Nu-mur" secondAttribute="trailingMargin" id="hfP-I9-zQD"/>
-                                                                <constraint firstItem="Kyk-xc-84O" firstAttribute="top" secondItem="NPI-Nu-mur" secondAttribute="topMargin" id="kTg-CO-U16"/>
-                                                            </constraints>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-4h-hRB">
-                                                <rect key="frame" x="8" y="383" width="359" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                                <state key="normal" title="Adicionar Ingrediente">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <segue destination="n27-9Y-Jui" kind="show" id="P3i-VT-vJl"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Modo de Preparo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klM-NH-CRk">
-                                                <rect key="frame" x="8" y="421" width="185" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.75" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bNk-cj-8mK">
-                                                <rect key="frame" x="8" y="450" width="359" height="271"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvO-5f-1xa">
-                                                <rect key="frame" x="8" y="729" width="359" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                                                <state key="normal" title="Salvar Receita">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="375" id="LCL-Gh-cLC"/>
-                                            <constraint firstAttribute="height" constant="800" id="OSM-cS-bYn"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="TsQ-u8-AKr" secondAttribute="bottom" constant="-197" id="2gt-se-I7c"/>
-                                    <constraint firstAttribute="trailing" secondItem="TsQ-u8-AKr" secondAttribute="trailing" id="P39-3u-jAe"/>
-                                    <constraint firstItem="TsQ-u8-AKr" firstAttribute="leading" secondItem="z1u-l9-v30" secondAttribute="leading" id="Qef-an-Jwt"/>
-                                    <constraint firstItem="TsQ-u8-AKr" firstAttribute="top" secondItem="z1u-l9-v30" secondAttribute="top" id="SOm-BM-Gdn"/>
-                                </constraints>
-                            </scrollView>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="mry-em-JCt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFY-uO-T64">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="xJn-9y-sTy"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LiT-av-PWD">
+                                            <rect key="frame" x="8" y="35" width="359" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="9Hc-gj-Pl0"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="x9Q-Dj-bWA"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredientes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1D-4M-sjo">
+                                            <rect key="frame" x="8" y="71" width="359" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="B59-s2-0BH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="LiT-av-PWD" secondAttribute="trailing" constant="8" id="2X3-M7-Afl"/>
+                                        <constraint firstItem="p1D-4M-sjo" firstAttribute="leading" secondItem="mry-em-JCt" secondAttribute="leading" constant="8" id="2rK-EM-EhP"/>
+                                        <constraint firstItem="p1D-4M-sjo" firstAttribute="top" secondItem="LiT-av-PWD" secondAttribute="bottom" constant="6" id="7lc-IA-G8Z"/>
+                                        <constraint firstAttribute="trailing" secondItem="sFY-uO-T64" secondAttribute="trailing" constant="8" id="L28-LU-Bws"/>
+                                        <constraint firstAttribute="bottom" secondItem="p1D-4M-sjo" secondAttribute="bottom" constant="15" id="YDW-T4-8wV"/>
+                                        <constraint firstItem="sFY-uO-T64" firstAttribute="top" secondItem="mry-em-JCt" secondAttribute="top" constant="8" id="cBm-Yg-d0N"/>
+                                        <constraint firstItem="sFY-uO-T64" firstAttribute="leading" secondItem="mry-em-JCt" secondAttribute="leading" constant="8" id="mWO-5d-94C"/>
+                                        <constraint firstAttribute="trailing" secondItem="p1D-4M-sjo" secondAttribute="trailing" constant="8" id="n21-yl-geV"/>
+                                        <constraint firstItem="LiT-av-PWD" firstAttribute="leading" secondItem="mry-em-JCt" secondAttribute="leading" constant="8" id="nNK-pc-iFO"/>
+                                        <constraint firstItem="p1D-4M-sjo" firstAttribute="leading" secondItem="LiT-av-PWD" secondAttribute="leading" id="p4o-p8-TNb"/>
+                                        <constraint firstItem="LiT-av-PWD" firstAttribute="leading" secondItem="sFY-uO-T64" secondAttribute="leading" id="wh3-qH-uK2"/>
+                                    </constraints>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="edi-yg-k9V">
+                                    <rect key="frame" x="0.0" y="182" width="375" height="350"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDi-on-hqT">
+                                            <rect key="frame" x="8" y="8" width="359" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="TBM-3z-BgU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <state key="normal" title="Adicionar Ingredientes">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="n27-9Y-Jui" kind="show" id="28I-XC-Sxs"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modo de Preparo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cu5-4L-YnL">
+                                            <rect key="frame" x="8" y="56" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="MdO-cE-8fW"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ec7-Xq-dFM">
+                                            <rect key="frame" x="8" y="282" width="359" height="60"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="h9F-ea-ipg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                            <state key="normal" title="Salvar Receita">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="salvarReceita:" destination="Va1-02-tbX" eventType="touchUpInside" id="3qo-qP-wX3"/>
+                                            </connections>
+                                        </button>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R62-h4-YGD">
+                                            <rect key="frame" x="8" y="85" width="359" height="189"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="R62-h4-YGD" firstAttribute="trailing" secondItem="ec7-Xq-dFM" secondAttribute="trailing" id="1n2-48-JIR"/>
+                                        <constraint firstAttribute="trailing" secondItem="ec7-Xq-dFM" secondAttribute="trailing" constant="8" id="3ab-Iu-Qo9"/>
+                                        <constraint firstItem="cu5-4L-YnL" firstAttribute="leading" secondItem="edi-yg-k9V" secondAttribute="leading" constant="8" id="Avt-YM-xXl"/>
+                                        <constraint firstItem="MDi-on-hqT" firstAttribute="top" secondItem="edi-yg-k9V" secondAttribute="top" constant="8" id="Bsf-Nb-wwy"/>
+                                        <constraint firstAttribute="trailing" secondItem="R62-h4-YGD" secondAttribute="trailing" constant="8" id="C5v-9S-tt1"/>
+                                        <constraint firstItem="R62-h4-YGD" firstAttribute="leading" secondItem="edi-yg-k9V" secondAttribute="leading" constant="8" id="D8w-HM-AIh"/>
+                                        <constraint firstAttribute="bottom" secondItem="ec7-Xq-dFM" secondAttribute="bottom" constant="8" id="DwT-Eg-ppv"/>
+                                        <constraint firstItem="cu5-4L-YnL" firstAttribute="top" secondItem="MDi-on-hqT" secondAttribute="bottom" constant="8" id="FAv-qH-OxX"/>
+                                        <constraint firstItem="R62-h4-YGD" firstAttribute="top" secondItem="cu5-4L-YnL" secondAttribute="bottom" constant="8" symbolic="YES" id="Is9-jX-km9"/>
+                                        <constraint firstAttribute="trailing" secondItem="MDi-on-hqT" secondAttribute="trailing" constant="8" id="KB8-gA-joo"/>
+                                        <constraint firstItem="MDi-on-hqT" firstAttribute="leading" secondItem="edi-yg-k9V" secondAttribute="leading" constant="8" id="Zas-ex-IId"/>
+                                        <constraint firstItem="ec7-Xq-dFM" firstAttribute="top" secondItem="R62-h4-YGD" secondAttribute="bottom" constant="8" symbolic="YES" id="cpa-zz-xiN"/>
+                                        <constraint firstItem="ec7-Xq-dFM" firstAttribute="leading" secondItem="edi-yg-k9V" secondAttribute="leading" constant="8" id="esV-Rn-hmO"/>
+                                        <constraint firstItem="R62-h4-YGD" firstAttribute="leading" secondItem="cu5-4L-YnL" secondAttribute="leading" id="sMq-FL-BCa"/>
+                                        <constraint firstAttribute="trailing" secondItem="cu5-4L-YnL" secondAttribute="trailing" constant="8" id="xwL-3p-yD2"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceitaIngredienteIdentifier" id="ffM-vS-Wc8" customClass="VCReceitaIngredienteCell" customModule="iFoodPlannerSwift" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="138" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ffM-vS-Wc8" id="d6R-wi-bVO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGf-4c-5OG">
+                                                    <rect key="frame" x="8" y="8" width="359" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="nomeIngrediente" destination="VGf-4c-5OG" id="gNy-LE-lZI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Va1-02-tbX" id="NlD-Mr-V1M"/>
+                                    <outlet property="delegate" destination="Va1-02-tbX" id="qgH-XY-6cJ"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="z1u-l9-v30" firstAttribute="leading" secondItem="LbR-Jp-84I" secondAttribute="leading" id="0Zk-3E-h7s"/>
                             <constraint firstItem="VpC-Sh-EQn" firstAttribute="top" secondItem="LbR-Jp-84I" secondAttribute="top" id="30h-z3-8i3"/>
                             <constraint firstAttribute="bottom" secondItem="VpC-Sh-EQn" secondAttribute="bottom" id="CYU-4Z-7tx"/>
-                            <constraint firstItem="z1u-l9-v30" firstAttribute="leading" secondItem="VpC-Sh-EQn" secondAttribute="leading" id="Dmk-mK-Mu7"/>
                             <constraint firstItem="VpC-Sh-EQn" firstAttribute="leading" secondItem="LbR-Jp-84I" secondAttribute="leading" id="IEZ-Sx-1VP"/>
-                            <constraint firstItem="z1u-l9-v30" firstAttribute="trailing" secondItem="VpC-Sh-EQn" secondAttribute="trailing" id="Lvo-31-K8h"/>
-                            <constraint firstAttribute="bottom" secondItem="z1u-l9-v30" secondAttribute="bottom" id="PW5-nw-V7W"/>
-                            <constraint firstAttribute="trailing" secondItem="z1u-l9-v30" secondAttribute="trailing" id="fjI-3g-WD0"/>
                             <constraint firstAttribute="trailing" secondItem="VpC-Sh-EQn" secondAttribute="trailing" id="iWR-Jf-Qgu"/>
-                            <constraint firstItem="z1u-l9-v30" firstAttribute="top" secondItem="Obh-ct-mHg" secondAttribute="bottom" id="lAN-St-Xbo"/>
-                            <constraint firstItem="z1u-l9-v30" firstAttribute="bottom" secondItem="VpC-Sh-EQn" secondAttribute="bottom" id="pBF-1J-hq8"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="receitaView" destination="TsQ-u8-AKr" id="cau-6x-h2U"/>
-                        <outlet property="scrollView" destination="z1u-l9-v30" id="PcM-NN-4Gf"/>
+                        <outlet property="tableView" destination="ZNX-Hg-CXq" id="4lz-I3-lnW"/>
+                        <outlet property="txtPreparo" destination="R62-h4-YGD" id="k2L-QQ-N8H"/>
+                        <outlet property="txtTitulo" destination="LiT-av-PWD" id="0PF-AR-YtR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCy-O9-gpc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2595.5" y="-450.5"/>
+            <point key="canvasLocation" x="2594.4000000000001" y="-451.12443778110946"/>
         </scene>
         <!--Lista de Ingredientes-->
         <scene sceneID="XOa-BV-t0O">
