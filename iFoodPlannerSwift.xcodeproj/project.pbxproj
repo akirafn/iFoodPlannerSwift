@@ -25,6 +25,7 @@
 		E99C3F901F19471C003504D3 /* ItemReceita+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F8A1F19471C003504D3 /* ItemReceita+CoreDataProperties.swift */; };
 		E99C3F911F19471C003504D3 /* Receita+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F8B1F19471C003504D3 /* Receita+CoreDataClass.swift */; };
 		E99C3F921F19471C003504D3 /* Receita+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99C3F8C1F19471C003504D3 /* Receita+CoreDataProperties.swift */; };
+		E9F756831F290B5C001D38DC /* VCReceitaBusca.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F756821F290B5C001D38DC /* VCReceitaBusca.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		E99C3F8A1F19471C003504D3 /* ItemReceita+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ItemReceita+CoreDataProperties.swift"; path = "Database/ItemReceita+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E99C3F8B1F19471C003504D3 /* Receita+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Receita+CoreDataClass.swift"; path = "Database/Receita+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E99C3F8C1F19471C003504D3 /* Receita+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Receita+CoreDataProperties.swift"; path = "Database/Receita+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E9F756821F290B5C001D38DC /* VCReceitaBusca.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VCReceitaBusca.swift; path = ViewController/VCReceitaBusca.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				E96730C31F1D2650003532B3 /* VCReceitaNova.swift */,
 				E96730C51F1D59D5003532B3 /* VCIngredienteNova.swift */,
 				E96730C71F1D5C68003532B3 /* VCIngredienteLista.swift */,
+				E9F756821F290B5C001D38DC /* VCReceitaBusca.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				E96730C41F1D2650003532B3 /* VCReceitaNova.swift in Sources */,
 				E96730C81F1D5C68003532B3 /* VCIngredienteLista.swift in Sources */,
 				E990B86D1F17EA10005ED6C8 /* AppDelegate.swift in Sources */,
+				E9F756831F290B5C001D38DC /* VCReceitaBusca.swift in Sources */,
 				E99C3F901F19471C003504D3 /* ItemReceita+CoreDataProperties.swift in Sources */,
 				E990B8851F17F7C4005ED6C8 /* VCCozinhaLista.swift in Sources */,
 				E99C3F921F19471C003504D3 /* Receita+CoreDataProperties.swift in Sources */,

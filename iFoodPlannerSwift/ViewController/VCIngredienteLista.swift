@@ -15,7 +15,7 @@ class VCIngredienteListaItem: UITableViewCell {
 }
 
 protocol VCIngredienteListaDelegate {
-    func carregaListaIngredientes(listaIngredientes : [Int : Item])
+    func carregaListaIngredientes(listaIngredientes : [NSManagedObjectID : Item])
 }
 
 class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
@@ -25,7 +25,7 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
     
     let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext    
     var frc : NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
-    var listaItemsReceita: [Int: Item] = [:]
+    var listaItemsReceita: [NSManagedObjectID: Item] = [:]
     
     func fetchRequests() -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
@@ -100,8 +100,8 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredienteListaItemCellIdentifier", for: indexPath) as! VCIngredienteListaItem
         let item = frc.object(at: indexPath) as! Item
         
-        cell.nomeIngrediente.text = String(item.itemId)
-        if let flagItem = listaItemsReceita[Int(item.itemId)]{
+        cell.nomeIngrediente.text = item.nome
+        if let flagItem = listaItemsReceita[item.objectID]{
             if(flagItem != nil){
                 cell.checkedIcon.image = UIImage(named: "checkIcon")
             } else{
@@ -109,7 +109,7 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
             }
         } else{
             cell.checkedIcon.image = UIImage(named: "uncheckIcon")
-            listaItemsReceita[Int(item.itemId)] = nil
+            listaItemsReceita[item.objectID] = nil
         }
 
         
@@ -119,14 +119,14 @@ class VCIngredienteLista: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = frc.object(at: indexPath) as! Item
         
-        if listaItemsReceita[Int(item.itemId)] == nil {
+        if listaItemsReceita[item.objectID] == nil {
             let currentCell = tableView.cellForRow(at: indexPath) as! VCIngredienteListaItem
             currentCell.checkedIcon.image = UIImage(named: "checkIcon")
-            listaItemsReceita[Int(item.itemId)] = item
+            listaItemsReceita[item.objectID] = item
         } else{
             let currentCell = tableView.cellForRow(at: indexPath) as! VCIngredienteListaItem
             currentCell.checkedIcon.image = UIImage(named: "uncheckIcon")
-            listaItemsReceita[Int(item.itemId)] = nil
+            listaItemsReceita[item.objectID] = nil
         }
     }
     

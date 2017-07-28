@@ -13,53 +13,48 @@ class VCCozinhaItemCell : UITableViewCell{
     @IBOutlet weak var titulo: UILabel!
 }
 
-class VCCozinhaLista: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class VCCozinhaLista: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, VCReceitaBuscaDelegate {
     @IBOutlet weak var tableView: UITableView!
-
-    let pc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    @IBOutlet weak var msgListaVazia: UILabel!
     
-    var frc : NSFetchedResultsController = NSFetchedResultsController<NSFetchRequestResult>()
+    var arrayIngrediente : [Item] = []
+    var arrayReceitas : [Receita] = []
     
-    func fetchRequests() -> NSFetchRequest<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Receita")
-        let sorter = NSSortDescriptor(key: "titulo", ascending: true)
-        fetchRequest.sortDescriptors = [sorter]
-        return fetchRequest
-    }
-    
-    func getFRC() -> NSFetchedResultsController<NSFetchRequestResult> {
-        frc = NSFetchedResultsController(fetchRequest : fetchRequests(), managedObjectContext: pc, sectionNameKeyPath: nil, cacheName: nil)
+    func buscaReceitaPorIngrediente(listaIngrediente: [NSManagedObjectID : Item]) {
+        arrayIngrediente.removeAll()
+        arrayReceitas.removeAll()
+        var listaAux : [Receita] = []
         
-        return frc
+        for (key, value) in listaIngrediente {
+            if value != nil{
+                arrayIngrediente.append(value)
+                let listaReceitas = value.receita as! Set<ItemReceita>
+                
+                if(arrayReceitas.count > 0){
+                    listaAux.removeAll()
+                    for itemReceita in listaReceitas {
+                        if(arrayReceitas.contains(itemReceita.receita!)){
+                            listaAux.append(itemReceita.receita!)
+                        }
+                    }
+                    arrayReceitas.removeAll()
+                    arrayReceitas = listaAux
+                } else{
+                    for itemDaReceita in listaReceitas {
+                        arrayReceitas.append(itemDaReceita.receita!)
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        frc = getFRC()
-        frc.delegate = self
-        
-        do{
-            try frc.performFetch()
-        } catch{
-            print(error)
-            return
-        }
         
         self.tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool){
-
-        frc = getFRC()
-        frc.delegate = self
-        
-        do{
-            try frc.performFetch()
-        } catch{
-            print(error)
-            return
-        }
         
         self.tableView.reloadData()
     }
@@ -69,37 +64,55 @@ class VCCozinhaLista: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "detalheReceita" {
+            let cell = sender as! VCCozinhaItemCell
+            let indexPath = tableView.indexPath(for: cell)
+            let receitaVC : VCReceitaNova = segue.destination as! VCReceitaNova
+            receitaVC.carregaReceita(dadoReceita: arrayReceitas[(indexPath?.row)!])
+        } else if segue.identifier == "buscaReceita" {
+            let buscaVC : VCReceitaBusca = segue.destination as! VCReceitaBusca
+            buscaVC.delegate = self
+            buscaVC.arrayIngredientes.removeAll()
+            for itemIngrediente in arrayIngrediente {
+                buscaVC.arrayIngredientes[itemIngrediente.objectID] = itemIngrediente
+            }
+        }
     }
-    */
+    
+    @IBAction func limparBusca(_ sender: Any) {
+        self.arrayIngrediente.removeAll()
+        self.arrayReceitas.removeAll()
+        self.tableView.reloadData()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        let nroSessoes = frc.sections?.count
-        return nroSessoes!
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let nroReceitas = frc.sections?[section].numberOfObjects
+        let nroReceitas = arrayReceitas.count
         
-        if((nroReceitas!) > 0){
+        if(nroReceitas > 0){
             self.tableView.isHidden = false
+            self.msgListaVazia.isHidden = true
         } else{
             self.tableView.isHidden = true
+            self.msgListaVazia.isHidden = false
         }
         
         
-        return nroReceitas!
+        return nroReceitas
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CozinhaItemCellIdentifier", for: indexPath) as! VCCozinhaItemCell
+        
+        let regReceita : Receita = arrayReceitas[indexPath.row]
+        cell.titulo.text = regReceita.titulo
         
         return cell
     }
